@@ -13,6 +13,8 @@ function f_psad {
 
   echo "127.0.0.1    0;" >> "$PSADDL"
   echo "$SERVERIP    0;" >> "$PSADDL"
+  echo "172.0.0.0/8   0;" >> "$PSADDL"
+  echo "10.254.0.0/16    0;" >> "$PSADDL"
   sed -i "s/EMAIL_ADDRESSES             root@localhost;/EMAIL_ADDRESSES             $ADMINEMAIL;/" "$PSADCONF"
   sed -i "s/HOSTNAME                    _CHANGEME_;/HOSTNAME                    $(hostname --fqdn);/" "$PSADCONF"
   sed -i 's/ENABLE_AUTO_IDS             N;/ENABLE_AUTO_IDS               Y;/' "$PSADCONF"
